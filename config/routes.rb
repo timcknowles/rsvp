@@ -1,4 +1,17 @@
 Rsvp::Application.routes.draw do
+  get "sessions/new"
+
+  resources :families
+  resources :sessions
+
+  get "logout" => "sessions#destroy", :as => "logout"
+  get "login" => "sessions#new", :as => "login"
+  get "signup" => "guests#new", :as => "signup"
+
+  root :to => "sessions#new"
+  resources :guests
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

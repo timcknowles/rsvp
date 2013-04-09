@@ -1,0 +1,27 @@
+%p#notice= notice
+
+%p
+  %b Invitation name:
+  = @family.name
+
+%p
+
+
+
+
+%h1 Guests 
+
+%table.table-striped.table-hover
+  %tr
+    %th First Name
+    %th Last Name
+  -@family.guests.each do |guest|
+    %tr
+      %td= guest.first_name
+      %td= guest.last_name
+
+
+
+= link_to 'Edit', edit_family_path(@family)
+\|
+= link_to 'Back', families_path

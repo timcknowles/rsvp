@@ -1,0 +1,9 @@
+%h1 Log in
+= form_tag sessions_path do
+  .field
+    = label_tag :login_code
+    = text_field_tag :login_code, params[:login_code]
+  .field
+    = label_tag :password
+    = password_field_tag :password
+  .actions= submit_tag "Log in"

@@ -1,0 +1,17 @@
+= simple_form_for @guest, { :class => 'form-horizontal'} do |f|
+  
+
+  
+  = f.input :first_name
+  = f.input :last_name
+  = f.input :invite_type
+  = f.input :email
+  = f.input :password
+  = f.input :login_code
+
+  =f.input :password_confirmation
+
+  =f.association :family
+
+  .form-actions
+    = f.button :submit
