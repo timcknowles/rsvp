@@ -13,6 +13,7 @@ gem 'simple_form'
 
 
 
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -28,6 +29,12 @@ group :development do
   gem 'sextant'
   gem 'sqlite3'
 end
+
+group :production do
+  gem 'pg'
+end
+
+gem 'jquery-rails'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

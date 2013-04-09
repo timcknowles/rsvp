@@ -15,11 +15,14 @@
   %tr
     %th First Name
     %th Last Name
+    %th RSVP
+    %th dietary requirments
   -@family.guests.each do |guest|
     %tr
       %td= guest.first_name
       %td= guest.last_name
-
+      %td= guest.rsvp
+      %td= guest.dietary
 
 
 = link_to 'Edit', edit_family_path(@family)
