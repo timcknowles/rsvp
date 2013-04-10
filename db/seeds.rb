@@ -11,16 +11,17 @@
 
 require 'csv'
 
-Users.delete_all
+#Users.delete_all
 
-CSV.rows.each ("#{Rails.root}/lib/data/user.csv")  do |row|
+CSV.foreach ("#{Rails.root}/lib/data/family.csv")  do |row|
  
-  user = User.new 
-  user.name = row[:name]
-  user.mobile = ""
-  user.code = row[:SecureRandom.hex(3)]
-  user.password = row[:password]
+  family = Family.new 
+  family.name = row[:name]
+  family.login_code = row[:login_code]
+  family.password = row[:password]
  
-  user.admin = true
-  user.save!
+  
+  family.save!
 end
+
+#:SecureRandom.hex(3)
