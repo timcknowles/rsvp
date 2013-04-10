@@ -16,9 +16,9 @@ require 'csv'
 CSV.foreach ("#{Rails.root}/lib/data/family.csv")  do |row|
  
   family = Family.new 
-  family.name = row[:name]
-  family.login_code = row[:login_code]
-  family.password = row[:password]
+  family.name = row[0]
+  family.login_code = row[1]
+  family.password = row[2]
  
   
   family.save!
