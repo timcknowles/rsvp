@@ -3,6 +3,7 @@ class RsvpsController < ApplicationController
   end
   
   def update
-    @family.update_attributes(params[:family])
+    current_family.update_attributes(params[:family])
+    redirect_to rsvp_path
   end
 end

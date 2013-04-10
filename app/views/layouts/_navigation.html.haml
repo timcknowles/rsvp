@@ -1,24 +1,22 @@
 
 %ul.nav
-  - if user_logged_in?
+  - if family_logged_in?
     %li.home-page-menu-item 
-      = link_to 'Logout',logout_path(@session)
-   
-
-     
-             
-       
+      = link_to 'Logout',logout_path
     
+    %li.home-page-menu-item
+      = link_to 'RSVP', edit_rsvp_path
+
   - else
     %li.home-page-menu-item
-      = link_to 'Login', login_path(@session)   
+      = link_to 'Login', login_path
     %li.home-page-menu-item
-      = link_to'Create Invite', signup_path(@guest)
+      = link_to'Create Invite', signup_path
 
     %li.home-page-menu-item
-      = link_to 'Add guests to families', new_guest_path(@guest)
+      = link_to 'Add guests to families', new_guest_path
 
     %li.home-page-menu-item
-      = link_to 'Guestlist', guests_path(@guest)
+      = link_to 'Guestlist', guests_path
 
 

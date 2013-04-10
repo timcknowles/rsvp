@@ -1,0 +1,14 @@
+=form_for current_family, url: rsvp_path, method: :put do |f|
+  %table
+    %tr
+      %th Name
+      %th Attending
+      %th Food
+      
+    =f.fields_for :guests do |guest_fields|
+      %tr
+        %td= guest_fields.object.name
+        %td= guest_fields.check_box(:rsvp)
+        %td= guest_fields.text_field(:dietary)
+  
+  =f.submit "RSVP!!!"

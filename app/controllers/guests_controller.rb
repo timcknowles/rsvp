@@ -5,15 +5,10 @@ class GuestsController < ApplicationController
 
 
   def index
-      if user_logged_in?
-      @guests = current_user.guests
-      else
-      @guests = Guest.all
-
-      respond_to do |format|
-        format.html # index.html.erb
-        format.json { render json: @guests }
-      end
+    @guest = Guest.all
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @guests }
     end
   end
 

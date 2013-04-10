@@ -1,14 +1,13 @@
-=form_for current_family, url: rsvp_path, method: :put do |f|
-  %table
-    %tr
-      %th Name
-      %th Attending
-      %th Food
-      
-    =f.fields_for :guests do |guest_fields|
-      %tr
-        %td= guest_fields.object.name
-        %td= guest_fields.checkbox_tag(:rsvp)
-        %td= guest_fields.text_field(:dietary)
+%table
+  %tr
+    %th Name
+    %th Attending
+    %th Food
   
-  =f.submit_tag "RSVP!!!"
+  -current_family.guests.each do |guest|
+    %tr
+      %td= guest.name
+      %td= guest.rsvp ? "Yes" : "No"
+      %td= guest.dietary
+  
+%p= link_to "Edit RSVP", edit_rsvp_path
