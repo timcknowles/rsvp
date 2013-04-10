@@ -8,7 +8,7 @@ Rsvp::Application.routes.draw do
   get "login" => "sessions#new", :as => "login"
   get "signup" => "guests#new", :as => "signup"
 
-  root :to => "sessions#new"
+  root :to => "guests#index"
   resources :guests
 
 
