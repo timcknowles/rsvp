@@ -10,18 +10,33 @@
 
 
 require 'csv'
+require 'securerandom'
 
-#Users.delete_all
+Family.delete_all
 
 CSV.foreach ("#{Rails.root}/lib/data/family.csv")  do |row|
  
   family = Family.new 
   family.name = row[0]
-  family.login_code = row[1]
-  family.password = row[2]
- 
+  family.password = "wedding"
+  family.login_code = SecureRandom.hex(3)
   
   family.save!
 end
 
-#:SecureRandom.hex(3)
+Guest.delete_all
+
+CSV.foreach ("#{Rails.root}/lib/data/guests.csv")  do |row|
+  guest = Guest.new
+  guest.family_id = row[0]
+  guest.first_name = row[1]
+  guest.last_name = row[2]
+  guest.invite_type = row[3]
+
+  guest.save!
+
+end
+
+
+  
+
