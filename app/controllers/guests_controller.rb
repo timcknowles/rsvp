@@ -1,15 +1,12 @@
 class GuestsController < ApplicationController
   # GET /guests
   # GET /guests.json
-  def toggle_rsvp
-  @a = Guest.find(params[:id])  
-  @a.toggle!(:rsvp)  
-  render :nothing => true  
-  end  
+  
 
 
   def index
     @guests = current_user.guests
+
 
     respond_to do |format|
       format.html # index.html.erb

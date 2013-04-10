@@ -13,6 +13,8 @@
     %li.home-page-menu-item
       = link_to 'Login', login_path(@session)   
     %li.home-page-menu-item
-      = link_to'Sign up', signup_path(@guest)
+      = link_to'Create Invite', signup_path(@guest)
 
-  
+    %li.home-page-menu-item
+      = link_to 'Add guests to families', new_guest_path(@guest)
+

@@ -12,9 +12,9 @@ Rsvp::Application.routes.draw do
 
   get "logout" => "sessions#destroy", :as => "logout"
   get "login" => "sessions#new", :as => "login"
-  get "signup" => "guests#new", :as => "signup"
+  get "signup" => "families#new", :as => "signup"
 
-  root :to => "guests#index"
+  root :to => "sessions#new"
   resources :guests
 
 
