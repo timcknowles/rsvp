@@ -1,27 +1,34 @@
 %h1 Listing guests
-
-%table
-  %tr
-    %th First name
-    %th Last name
-    %th Family Name
-    %th Invite type
-    %th Email
-    %th
-    %th
-    %th
-
-  - @guests.each do |guest|
+= form_tag rsvp_guests_path, method: :put do
+  %table.table-striped.table-hover
     %tr
-      %td= guest.first_name
-      %td= guest.last_name
-      %td= guest.family.name
-      %td= guest.invite_type
-      %td= guest.email
-      %td= link_to 'Show', guest
-      %td= link_to 'Edit', guest
-      %td= link_to 'Destroy', guest, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %th RSVP check
+      %th First name
+      %th Last name
+      %th Family Name
+      %th Invite type
+      %th Email
+      %th RSVP
+      %th
+      %th
+      %th
 
-%br
+    - @guests.each do |guest|
+      %tr
+        %td= check_box_tag "guest_ids[]", guest.id
+        %td= guest.first_name
+        %td= guest.last_name
+        %td= guest.family.name
+        %td= guest.invite_type
+        %td= guest.email
+        %td= guest.rsvp
+        %td= link_to 'Show', guest
+        /%td= link_to 'Edit', edit_guest_path(@guest)
+        %td= link_to 'Destroy', guest, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        /%td= link_to rsvp_link_text(guest), toggle_rsvp_guest_path(rsvp), :remote => true, :id => "rsvp_link_#{rsvp.id}"
+        
+    
 
-= link_to 'New Guest', new_guest_path
+  =submit_tag "rsvp"
+
+  = link_to 'New Guest', new_guest_path

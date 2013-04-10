@@ -4,6 +4,12 @@ Rsvp::Application.routes.draw do
   resources :families
   resources :sessions
 
+  resources :guests do  
+    collection do
+      put :rsvp  
+    end  
+  end  
+
   get "logout" => "sessions#destroy", :as => "logout"
   get "login" => "sessions#new", :as => "login"
   get "signup" => "guests#new", :as => "signup"

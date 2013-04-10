@@ -15,6 +15,4 @@
     %li.home-page-menu-item
       = link_to'Sign up', signup_path(@guest)
 
-  -if user_logged_in? #&& current_user.admin?
-    %li.home-page-menu-item 
-      = link_to 'Guests', guests_path
+  

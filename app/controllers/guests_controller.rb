@@ -1,8 +1,15 @@
 class GuestsController < ApplicationController
   # GET /guests
   # GET /guests.json
+  def toggle_rsvp
+  @a = Guest.find(params[:id])  
+  @a.toggle!(:rsvp)  
+  render :nothing => true  
+  end  
+
+
   def index
-    @guests = Guest.all
+    @guests = current_user.guests
 
     respond_to do |format|
       format.html # index.html.erb
@@ -80,4 +87,9 @@ class GuestsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  def rsvp
+    Guest.update_all({rsvp: true},{id: params[:guest_ids]})
+    redirect_to root_url
+    end
+  
 end

@@ -11,12 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130409184547) do
+ActiveRecord::Schema.define(:version => 20130410092832) do
 
   create_table "families", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.string   "password_digest"
+    t.string   "login_code"
   end
 
   create_table "guests", :force => true do |t|
@@ -24,13 +26,11 @@ ActiveRecord::Schema.define(:version => 20130409184547) do
     t.string   "last_name"
     t.boolean  "invite_type"
     t.string   "email"
-    t.datetime "created_at",                       :null => false
-    t.datetime "updated_at",                       :null => false
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
     t.integer  "family_id"
-    t.string   "password_digest"
-    t.string   "login_code"
     t.boolean  "rsvp"
-    t.string   "dietary",         :default => "f"
+    t.string   "dietary",     :default => "f"
   end
 
 end

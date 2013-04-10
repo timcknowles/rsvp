@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   private
   def current_user
-    @current_user ||= Guest.find(session[:guest_id]) if session[:guest_id]
+    @current_user ||= Family.find(session[:family_id]) if session[:family_id]
   end
   helper_method :current_user
   def user_logged_in?
