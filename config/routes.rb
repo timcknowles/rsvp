@@ -1,4 +1,7 @@
 Rsvp::Application.routes.draw do
+
+  resource :rsvp # "resource" is singular because there's only one per user, so we don't need index etc
+
   get "sessions/new"
 
   resources :families

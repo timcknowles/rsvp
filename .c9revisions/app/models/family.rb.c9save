@@ -1,0 +1,1 @@
+{"ts":1365614982040,"silentsave":true,"restoring":false,"patch":[[{"diffs":[[1,"class Family < ActiveRecord::Base\n  has_secure_password\n  attr_accessible :name, :login_code, :password, :password_confirmation\n  has_many :guests\nend\n\n"]],"start1":0,"start2":0,"length1":0,"length2":152}]],"length":152}
