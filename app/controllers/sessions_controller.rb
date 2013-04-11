@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
   family = Family.find_by_login_code(params[:login_code])
   if family && family.authenticate(params[:password])
     session[:family_id] = family.id
-    redirect_to guests_path, notice: "Logged in!"
+    redirect_to edit_rsvp_path, notice: "Logged in!"
   else
     flash.now.alert = "login code or password is invalid."
     render "new"

@@ -8,13 +8,13 @@
   = @guest.last_name
 %p
   %b Invite type:
-  = @guest.invite_type
+  = @guest.invite_type ? "cermeony & reception" : "reception only" 
 %p
   %b Email:
   = @guest.email
 %p
   %b rsvp:
-  = @guest.rsvp
+  = @guest.rsvp ? "Yes please" : "No sorry I can't make it"
 
 = link_to 'Edit', edit_guest_path(@guest)
 \|
