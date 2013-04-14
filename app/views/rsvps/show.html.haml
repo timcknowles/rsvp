@@ -1,4 +1,4 @@
-%table
+%table.table.table-bordered.table-striped.table-hover
   %tr
     %th Name
     %th Attending
@@ -9,6 +9,6 @@
       %td= guest.name
       %td= guest.rsvp ? "Yes please" : "No sorry I can't make it"
       %td= guest.dietary
-      
+
   
 %p= link_to "Edit RSVP", edit_rsvp_path

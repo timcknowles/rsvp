@@ -20,9 +20,9 @@
       %td= guest.invite_type ? "cermeony & reception" : "reception only" 
       %td= guest.email
       %td= guest.rsvp ? "Yes" : "No"
-      %td= link_to 'Show', guest
-      %td= link_to 'Edit' 
-      %td= link_to 'Destroy', guest, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= link_to 'Show', admins_guest_path(guest)
+      /%td= link_to 'Edit',  edit_admins_guests_path(@guest)
+      %td= link_to 'Destroy', admins_guest_path(guest), :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
