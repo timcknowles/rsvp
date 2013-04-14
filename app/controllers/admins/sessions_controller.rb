@@ -1,4 +1,6 @@
 class Admins::SessionsController < AdminsController
+ skip_before_filter :check_admin
+
  def new
  end
 

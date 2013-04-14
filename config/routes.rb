@@ -8,7 +8,6 @@ Rsvp::Application.routes.draw do
     end
 
   
-get "/admins/new"
 
   resource :rsvp # "resource" is singular because there's only one per user, so we don't need index etc
 
