@@ -5,6 +5,9 @@ class Admins::SessionsController < AdminsController
  def index
  end
 
+ def show
+ end
+
  def create
   admin = Admin.find_by_email(params[:email])
   if admin && admin.authenticate(params[:password])

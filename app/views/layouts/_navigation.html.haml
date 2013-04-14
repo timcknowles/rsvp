@@ -14,7 +14,7 @@
    
   -if admin_logged_in? 
     %li.home-page-menu-item 
-      = link_to 'log out admin', admins_sessions_path, :method => :delete
+      = link_to 'log out admin', admins_logout_path
     %li.home-page-menu-item
       = link_to'Create Invite', signup_path
 
@@ -26,7 +26,7 @@
 
   -else
     %li.home-page-menu-item 
-      = link_to 'log in admin', '#'
+      = link_to 'log in admin', admins_login_path
 
 
 
