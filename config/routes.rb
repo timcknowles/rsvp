@@ -1,4 +1,12 @@
 Rsvp::Application.routes.draw do
+  namespace :admins do
+    resources :sessions
+    resources :guests
+    
+    end
+
+  
+get "/admins/new"
 
   resource :rsvp # "resource" is singular because there's only one per user, so we don't need index etc
 
@@ -13,6 +21,7 @@ Rsvp::Application.routes.draw do
     end  
   end  
 
+  
   get "logout" => "sessions#destroy", :as => "logout"
   get "login" => "sessions#new", :as => "login"
   get "signup" => "families#new", :as => "signup"
