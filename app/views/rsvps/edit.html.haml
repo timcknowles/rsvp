@@ -10,7 +10,8 @@
       %tr
         %td= guest_fields.object.name
         %td= guest_fields.check_box(:rsvp)
-        %td= guest_fields.check_box(:vegetarian)
-        %td= guest_fields.text_field(:dietary)
+        -if full_invite?
+          %td= guest_fields.check_box(:vegetarian)
+          %td= guest_fields.text_field(:dietary)
   
   =f.submit "RSVP!!!"

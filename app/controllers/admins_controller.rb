@@ -1,15 +1,17 @@
 class AdminsController < ApplicationController
 
-# before_filter :check_admin
+ before_filter :check_admin
 
   protected
 
-    #def check_admin
-     # return true if admin_logged_in? && current_admin?
+    def check_admin
+      unless admin_logged_in? 
+      flash.now.alert = "You must have admin rights to access this page"
 
-     # redirect_to root_url
-     # false
-    #end
+      redirect_to admins_login_path
+      
+      end
+    end
 
 end
 

@@ -25,5 +25,11 @@ class ApplicationController < ActionController::Base
       !!current_admin
     end
     helper_method :admin_logged_in?
+
+    def full_invite?
+      @current_family.guest.invite_type
+    end
+
+    helper_method :full_invite?
     
 end

@@ -9,8 +9,9 @@
     %tr
       %td= guest.name
       %td= guest.rsvp ? "Yes please" : "No sorry I can't make it"
-      %td= guest.vegetarian ? "yes" : "no"
-      %td= guest.dietary
+      -if full_invite?
+        %td= guest.vegetarian ? "yes" : "no"
+        %td= guest.dietary
 
   
 %p= link_to "Edit RSVP", edit_rsvp_path
