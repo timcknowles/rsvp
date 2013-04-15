@@ -74,7 +74,7 @@ def index
     @guest.destroy
 
     respond_to do |format|
-      format.html { redirect_to guests_url }
+      format.html { redirect_to admins_guest_path }
       format.json { head :no_content }
     end
   end

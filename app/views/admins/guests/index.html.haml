@@ -1,14 +1,18 @@
 %h1 Listing guests
 
+
+
 %table.table.table-bordered.table-striped.table-hover
   %tr
     %th First name
     %th Last name
     %th Invite Name
     %th Invite type
+    %th Login Code
     %th Email
     %th RSVP
-    %th
+    %th Vegetarian
+    %th Other Dietary Reqs
     %th
     %th
 
@@ -18,12 +22,38 @@
       %td= guest.last_name
       %td= guest.family.name
       %td= guest.invite_type ? "cermeony & reception" : "reception only" 
+      %th= guest.family.login_code
       %td= guest.email
       %td= guest.rsvp ? "Yes" : "No"
+      %td= guest.vegetarian ? "Yes" : "No"
+      %td= guest.dietary
       %td= link_to 'Show', admins_guest_path(guest)
       /%td= link_to 'Edit',  edit_admins_guests_path(@guest)
       %td= link_to 'Destroy', admins_guest_path(guest), :method => :delete, :data => { :confirm => 'Are you sure?' }
-
+%table.table.table-bordered.table-striped.table-hover
+  %tr
+    %th Total number of guests
+    %th Reception only
+    %th Reception only RSVP
+    %th Full invite
+    %th Full invite RSVP
+   
+  %tr
+    %td= Guest.count
+    %td= Guest.count('invite_type', :conditions => [ 'invite_type = ?', false ])
+    %td= Guest.count('rsvp', :conditions => [ 'invite_type = ?', false ])
+    %td= Guest.count('invite_type', :conditions => [ 'invite_type = ?', true ])
+    %td= Guest.count('rsvp', :conditions => [ 'invite_type = ?', true ])
+   
+%table.table.table-bordered.table-striped.table-hover
+  %tr
+    %th Vegetarian
+    %th Other dietary requirments
+    
+  %tr
+    %td= Guest.count('vegetarian', :conditions => "1")
+    %td= Guest.count('dietary', :conditions => "1")
+    
 %br
 
 = link_to 'New Guest', new_admins_guest_path

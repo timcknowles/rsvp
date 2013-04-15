@@ -2,12 +2,14 @@
   %tr
     %th Name
     %th Attending
-    %th Food
+    %th Vegetarian?
+    %th Other dietary requirement(s)
   
   -current_family.guests.each do |guest|
     %tr
       %td= guest.name
       %td= guest.rsvp ? "Yes please" : "No sorry I can't make it"
+      %td= guest.vegetarian ? "yes" : "no"
       %td= guest.dietary
 
   

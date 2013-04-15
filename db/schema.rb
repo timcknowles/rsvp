@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130411221058) do
+ActiveRecord::Schema.define(:version => 20130415085046) do
 
   create_table "admins", :force => true do |t|
     t.datetime "created_at",      :null => false
@@ -34,11 +34,12 @@ ActiveRecord::Schema.define(:version => 20130411221058) do
     t.string   "last_name"
     t.boolean  "invite_type"
     t.string   "email"
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
     t.integer  "family_id"
     t.boolean  "rsvp"
-    t.string   "dietary",     :default => "f"
+    t.boolean  "vegetarian",  :default => false
+    t.string   "dietary"
   end
 
 end
