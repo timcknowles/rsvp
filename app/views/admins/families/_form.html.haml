@@ -1,0 +1,14 @@
+= simple_form_for ([:admins, @family], { :class => 'form-horizontal'} do |f|
+  
+
+  = f.input :name
+  = f.input :login_code
+  = f.input :password
+  = f.input :password_confirmation
+
+
+  .form-actions
+    = f.button :submit
+
+
+

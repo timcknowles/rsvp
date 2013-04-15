@@ -6,7 +6,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-
+admin = Admin.new
+admin.email = "tim.c.knowles@gmail.com"
+admin.password= "Foobar"
+admin.save!
 
 
 require 'csv'

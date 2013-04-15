@@ -1,4 +1,4 @@
-= simple_form_for @guest, { :class => 'form-horizontal'} do |f|
+= simple_form_for ([:admins, @guest]), { :class => 'form-horizontal'} do |f|
   
   = f.input :first_name
   = f.input :last_name
