@@ -1,20 +1,16 @@
 %h1 Listing families
 
-%table
+%table.table.table-bordered.table-striped.table-hover
   %tr
     %th Name
     %th
     %th
-    %th
+   
 
   - @families.each do |family|
     %tr
       %td= family.name
-      %td= link_to 'Show', family
-      %td= link_to 'Edit', edit_family_path(family)
-      %td= link_to 'Destroy', family, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= link_to 'Show', admins_family_path(family)
+      %td= link_to 'Delete', admins_family_path(family), :method => :delete, :data => { :confirm => 'Are you sure?' }
       
   
-%br
-
-= link_to 'New Family', new_family_path

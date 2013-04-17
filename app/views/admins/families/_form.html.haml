@@ -1,4 +1,4 @@
-= simple_form_for ([:admins, @family], { :class => 'form-horizontal'} do |f|
+= simple_form_for ([:admins, @family]), { :class => 'form-horizontal'} do |f|
   
 
   = f.input :name
@@ -7,8 +7,7 @@
   = f.input :password_confirmation
 
 
-  .form-actions
-    = f.button :submit
-
+  .div
+  = f.submit nil, label:'create invite', :class => 'btn btn-primary'
 
 

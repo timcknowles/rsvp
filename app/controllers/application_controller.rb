@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-
+ 
   private
 
     def current_family
@@ -26,10 +26,6 @@ class ApplicationController < ActionController::Base
     end
     helper_method :admin_logged_in?
 
-    def full_invite?
-      @current_family.guest.invite_type
-    end
 
-    helper_method :full_invite?
     
 end

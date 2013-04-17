@@ -1,8 +1,9 @@
 =form_for current_family, url: rsvp_path, method: :put do |f|
-  %table
+  %table.table.table-bordered.table-striped.table-hover
     %tr
       %th Name
       %th Attending
+      %th email
       %th Vegetarian?
       %th Other dietary requirement(s)
       
@@ -10,8 +11,13 @@
       %tr
         %td= guest_fields.object.name
         %td= guest_fields.check_box(:rsvp)
-        -if full_invite?
+        %td= guest_fields.text_field(:email)
+        -if guest_fields.object.invite_type?
           %td= guest_fields.check_box(:vegetarian)
           %td= guest_fields.text_field(:dietary)
-  
-  =f.submit "RSVP!!!"
+        -else
+          %td= guest_fields.check_box(:vegetarian, :disabled => true)
+          %td= guest_fields.text_field(:dietary, :disabled => true)
+      
+
+  =f.submit "RSVP", :class => 'btn btn-large btn-primary'

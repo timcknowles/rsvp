@@ -3,13 +3,12 @@
   = f.input :first_name
   = f.input :last_name
   = f.input :email
-  = f.input :invite_type
-  = f.input :dietary
+  = f.input :invite_type, label: "check box to indicate full invite"
   = f.input :rsvp , label: "check box to change RSVP to yes"
-
+  = f.input :dietary
 
   
-  = f.association :family
+  = f.association :family , label: "select invite group to which guest belongs"
 
-  .form-actions
-    = f.button :submit
+  .div
+  = f.submit nil, label:'create guest', :class => 'btn btn-primary'

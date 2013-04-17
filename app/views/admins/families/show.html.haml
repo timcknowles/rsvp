@@ -1,28 +1,33 @@
 %p#notice= notice
 
 %p
-  %b Invitation name:
-  = @family.name
+  %h2 Invitation name: #{@family.name}
+  %h2 Invitation Log in code: #{@family.login_code}
+
+    
 
 %p
 
 
 %h1 Guests 
 
-%table.table-striped.table-hover
+%table.table.table-bordered.table-striped.table-hover
   %tr
     %th First Name
     %th Last Name
+    %th Invite type
+    %th email
     %th RSVP
+    %th Vegetarian
     %th dietary requirments
   -@family.guests.each do |guest|
     %tr
       %td= guest.first_name
       %td= guest.last_name
-      %td= guest.rsvp
+      %td= guest.invite_type ? "cermeony & reception" : "reception only" 
+      %td= guest.email
+      %td= guest.rsvp ? "Yes" : "No"
+      %td= guest.vegetarian ? "Yes" : "No"
       %td= guest.dietary
 
 
-= link_to 'Edit', edit_family_path(@family)
-\|
-= link_to 'Back', families_path

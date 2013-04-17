@@ -1,5 +1,4 @@
-%h1 Listing guests
-
+%h1 Guest List
 
 
 %table.table.table-bordered.table-striped.table-hover
@@ -27,9 +26,8 @@
       %td= guest.rsvp ? "Yes" : "No"
       %td= guest.vegetarian ? "Yes" : "No"
       %td= guest.dietary
-      %td= link_to 'Show', admins_guest_path(guest)
-      /%td= link_to 'Edit',  edit_admins_guests_path(@guest)
-      %td= link_to 'Destroy', admins_guest_path(guest), :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= link_to 'Show', admins_guest_path(guest), :class => 'btn btn-mini btn-primary'
+      %td= link_to 'Delete', admins_guest_path(guest), :method => :delete, :data => { :confirm => 'Are you sure?' },  :class => 'btn btn-mini btn-danger'
 %table.table.table-bordered.table-striped.table-hover
   %tr
     %th Total number of guests
@@ -52,8 +50,8 @@
     
   %tr
     %td= Guest.count('vegetarian', :conditions => "1")
-    %td= Guest.count('dietary', :conditions => "1")
+    %td= Guest.where('dietary is NOT NULL and dietary != ""').count
     
 %br
 
-= link_to 'New Guest', new_admins_guest_path
+/= link_to 'New Guest', new_admins_guest_path

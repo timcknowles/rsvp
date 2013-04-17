@@ -1,14 +1,10 @@
 
 %ul.nav
+  
   - if family_logged_in?
     %li.home-page-menu-item 
       = link_to 'Logout',logout_path
     
-    %li.home-page-menu-item
-      = link_to 'RSVP', edit_rsvp_path
-  -else
-    %li.home-page-menu-item 
-      = link_to 'log in admin', admins_login_path
 
     
    
@@ -17,14 +13,18 @@
       = link_to 'log out admin', admins_logout_path
     %li.home-page-menu-item
       = link_to'Create Invite', new_admins_family_path
-
     %li.home-page-menu-item
       = link_to 'Add guests to families', new_admins_guest_path
 
     %li.home-page-menu-item
-      = link_to 'Guestlist', admins_guests_path
-
+      = link_to 'Guest list', admins_guests_path
+    %li.home-page-menu-item
+      = link_to 'Invite list', admins_families_path
+  -else
+    %li.home-page-menu-item 
+      = link_to 'log in admin', admins_login_path
   
+
 
 
 

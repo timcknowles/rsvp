@@ -1,6 +1,6 @@
 class Guest < ActiveRecord::Base
   
-  attr_accessible :email, :first_name, :invite_type, :last_name, :family_id, :rsvp, :dietary
+  attr_accessible :email, :first_name, :invite_type, :last_name, :family_id, :rsvp, :dietary, :vegetarian
   belongs_to :family
 
   def name
