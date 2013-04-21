@@ -50,6 +50,6 @@
     
   %tr
     %td= Guest.count('vegetarian', :conditions => [ 'vegetarian = ?', true ])
-    %td= Guest.where('dietary is NOT NULL and dietary != ""').count
+    %td= Guest.where("dietary is NOT NULL and dietary != ''").count
     
 %br
