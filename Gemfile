@@ -11,6 +11,7 @@ gem 'bootstrap-sass'
 gem 'bcrypt-ruby'
 gem 'simple_form'
 gem 'figaro'
+gem 'aws-sdk'
 
 
 
