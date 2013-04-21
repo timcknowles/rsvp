@@ -21,7 +21,7 @@ require 'securerandom'
 
 Family.delete_all
 
-CSV.foreach ("#{Rails.root}/lib/data/family.csv")  do |row|
+CSV.foreach ("http://skinnersrsvp.s3.amazonaws.com/family.csv")  do |row|
  
   family = Family.new 
   family.name = row[0]
@@ -33,7 +33,7 @@ end
 
 Guest.delete_all
 
-CSV.foreach ("#{Rails.root}/lib/data/guests.csv")  do |row|
+CSV.foreach ("http://skinnersrsvp.s3.amazonaws.com/guests.csv")  do |row|
   guest = Guest.new
   guest.family_id = row[0]
   guest.first_name = row[1]
