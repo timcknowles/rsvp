@@ -7,10 +7,14 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 admin = Admin.new
-admin.email = "tim.c.knowles@gmail.com"
-admin.password= "Foobar"
+admin.email = ENV["ADMIN_1_EMAIL"]
+admin.password= ENV["ADMIN_1_PASSWORD"]
 admin.save!
 
+admin = Admin.new
+admin.email = ENV["ADMIN_2_EMAIL"]
+admin.password= ENV["ADMIN_2_PASSWORD"]
+admin.save!
 
 require 'csv'
 require 'securerandom'
@@ -21,7 +25,7 @@ CSV.foreach ("#{Rails.root}/lib/data/family.csv")  do |row|
  
   family = Family.new 
   family.name = row[0]
-  family.password = "wedding"
+  family.password = ENV["WEDDING_PASSWORD"]
   family.login_code = SecureRandom.hex(3)
   
   family.save!

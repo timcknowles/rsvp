@@ -15,12 +15,12 @@
     %th
     %th
 
-  - @guest.each do |guest|
+  - @guests.each do |guest|
     %tr
       %td= guest.first_name
       %td= guest.last_name
       %td= guest.family.name
-      %td= guest.invite_type ? "cermeony & reception" : "reception only" 
+      %td= guest.invite_type ? "ceremony & reception" : "reception only" 
       %th= guest.family.login_code
       %td= guest.email
       %td= guest.rsvp ? "Yes" : "No"
@@ -49,9 +49,7 @@
     %th Other dietary requirments
     
   %tr
-    %td= Guest.count('vegetarian', :conditions => "1")
+    %td= Guest.count('vegetarian', :conditions => "0")
     %td= Guest.where('dietary is NOT NULL and dietary != ""').count
     
 %br
-
-/= link_to 'New Guest', new_admins_guest_path

@@ -42,6 +42,9 @@ GEM
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    figaro (0.6.3)
+      bundler (~> 1.0)
+      rails (>= 3, < 5)
     haml (4.0.0)
       tilt
     haml-rails (0.4)
@@ -123,6 +126,7 @@ DEPENDENCIES
   bcrypt-ruby
   bootstrap-sass
   coffee-rails (~> 3.2.1)
+  figaro
   haml-rails
   jquery-rails
   pg

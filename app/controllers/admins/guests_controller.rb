@@ -1,9 +1,10 @@
 class Admins::GuestsController < AdminsController
 
 def index
-    @guest = Guest.all
+    @guests = Guest.all
     respond_to do |format|
       format.html # index.html.erb
+      format.csv {render text: @guests.to_csv}
       format.json { render json: @guests }
     end
   end
@@ -78,9 +79,11 @@ def index
       format.json { head :no_content }
     end
   end
+
   def rsvp
     Guest.update_all({rsvp: true},{id: params[:guest_ids]})
     redirect_to root_url
     end
+
   
 end

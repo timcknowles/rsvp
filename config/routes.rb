@@ -1,7 +1,8 @@
 Rsvp::Application.routes.draw do
   namespace :admins do
     resources :sessions
-    resources :guests
+    resources :guests 
+
     resources :families
     get 'logout' => 'sessions#destroy', :as => 'logout'
     get "login" => "sessions#new", :as => "login"

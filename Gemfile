@@ -10,6 +10,7 @@ gem 'haml-rails'
 gem 'bootstrap-sass'
 gem 'bcrypt-ruby'
 gem 'simple_form'
+gem 'figaro'
 
 
 
