@@ -49,7 +49,7 @@
     %th Other dietary requirments
     
   %tr
-    %td= Guest.count('vegetarian', :conditions => "0")
+    %td= Guest.count('vegetarian', :conditions => [ 'vegetarian = ?', true ])
     %td= Guest.where('dietary is NOT NULL and dietary != ""').count
     
 %br
