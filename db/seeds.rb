@@ -17,11 +17,15 @@ admin.password= ENV["ADMIN_2_PASSWORD"]
 admin.save!
 
 require 'csv'
+require 'open-uri'
 require 'securerandom'
 
 Family.delete_all
 
-CSV.foreach ("http://skinnersrsvp.s3.amazonaws.com/family.csv")  do |row|
+
+file1 = open(URI.parse ("http://skinnersrsvp.s3.amazonaws.com/family.csv"))
+
+CSV.foreach (file1)  do |row|
  
   family = Family.new 
   family.name = row[0]
@@ -33,7 +37,9 @@ end
 
 Guest.delete_all
 
-CSV.foreach ("http://skinnersrsvp.s3.amazonaws.com/guests.csv")  do |row|
+file2 = open(URI.parse ("http://skinnersrsvp.s3.amazonaws.com/guests.csv"))
+
+CSV.foreach (file2)  do |row|
   guest = Guest.new
   guest.family_id = row[0]
   guest.first_name = row[1]
