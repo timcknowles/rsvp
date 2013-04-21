@@ -23,7 +23,7 @@ require 'securerandom'
 Family.delete_all
 
 
-file1 = open(URI.parse ("http://skinnersrsvp.s3.amazonaws.com/family.csv"))
+file1 = open("http://skinnersrsvp.s3.amazonaws.com/family.csv")
 
 CSV.foreach (file1)  do |row|
  
@@ -37,7 +37,7 @@ end
 
 Guest.delete_all
 
-file2 = open(URI.parse ("http://skinnersrsvp.s3.amazonaws.com/guests.csv"))
+file2 = open("http://skinnersrsvp.s3.amazonaws.com/guests.csv")
 
 CSV.foreach (file2)  do |row|
   guest = Guest.new
