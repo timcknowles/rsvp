@@ -16,6 +16,21 @@ admin.email = ENV["ADMIN_2_EMAIL"]
 admin.password= ENV["ADMIN_2_PASSWORD"]
 admin.save!
 
+admin = Admin.new
+admin.email = ENV["ADMIN_3_EMAIL"]
+admin.password= ENV["ADMIN_3_PASSWORD"]
+admin.save!
+
+admin = Admin.new
+admin.email = ENV["ADMIN_4_EMAIL"]
+admin.password= ENV["ADMIN_4_PASSWORD"]
+admin.save!
+
+admin = Admin.new
+admin.email = ENV["ADMIN_5_EMAIL"]
+admin.password= ENV["ADMIN_5_PASSWORD"]
+admin.save!
+
 require 'csv'
 require 'open-uri'
 require 'securerandom'
