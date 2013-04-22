@@ -12,12 +12,9 @@
         %td= guest_fields.object.name
         %td= guest_fields.check_box(:rsvp)
         %td= guest_fields.text_field(:email)
-        -if guest_fields.object.invite_type?
-          %td= guest_fields.check_box(:vegetarian)
-          %td= guest_fields.text_field(:dietary)
-        -else
-          %td= guest_fields.check_box(:vegetarian, :disabled => true)
-          %td= guest_fields.text_field(:dietary, :disabled => true)
+        %td= guest_fields.check_box(:vegetarian)
+        %td= guest_fields.text_field(:dietary)
+      
       
 
   =f.submit "RSVP", :class => 'btn btn-large btn-primary'

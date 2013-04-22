@@ -1,4 +1,7 @@
 Rsvp::Application.routes.draw do
+  get "information", to: 'info#information'
+  get "info/information"
+
   namespace :admins do
     resources :sessions
     resources :guests 

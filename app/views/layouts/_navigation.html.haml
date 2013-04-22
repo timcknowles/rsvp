@@ -3,6 +3,8 @@
   
   - if family_logged_in?
     %li.home-page-menu-item 
+      = link_to 'Information about the day', information_path
+    %li.home-page-menu-item 
       = link_to 'Logout',logout_path
     
 
@@ -20,6 +22,8 @@
       = link_to 'Guest list', admins_guests_path
     %li.home-page-menu-item
       = link_to 'Invite list', admins_families_path
+    %li.home-page-menu-item 
+      = link_to 'Information about the day', information_path
   -else
     %li.home-page-menu-item 
       = link_to 'log in admin', admins_login_path
