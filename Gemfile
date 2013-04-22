@@ -12,6 +12,7 @@ gem 'bcrypt-ruby'
 gem 'simple_form'
 gem 'figaro'
 gem 'aws-sdk'
+gem 'aws-s3'
 
 
 
