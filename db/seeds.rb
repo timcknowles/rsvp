@@ -35,36 +35,36 @@ require 'csv'
 require 'open-uri'
 require 'securerandom'
 
-Family.delete_all
+
 
 
 file1 = open("http://skinnersrsvp.s3.amazonaws.com/family.csv")
 
 CSV.foreach (file1)  do |row|
- 
-  family = Family.new 
-  family.name = row[0]
-  family.password = ENV["WEDDING_PASSWORD"]
-  family.login_code = SecureRandom.hex(3)
-  
+  family = find_by_id(row["id"]) || new
+  family.family_id = row[0]
+  family.first_name = row[1]
+  family.last_name = row[2]
+  family.invite_type = row[3]
+
   family.save!
 end
 
-Guest.delete_all
+
 
 file2 = open("http://skinnersrsvp.s3.amazonaws.com/guests.csv")
 
 CSV.foreach (file2)  do |row|
-  guest = Guest.new
+  guest = find_by_id(row["id"]) || new
   guest.family_id = row[0]
   guest.first_name = row[1]
   guest.last_name = row[2]
   guest.invite_type = row[3]
 
   guest.save!
-
+   
+  
 end
-
 
   
 
