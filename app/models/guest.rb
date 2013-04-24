@@ -10,7 +10,7 @@ class Guest < ActiveRecord::Base
   def self.to_csv
     CSV.generate do |csv|
       csv << ["email", "rsvp"]
-      @guests.each do |guest|
+      all.each do |guest|
         csv << [guest.email, guest.rsvp]
       end
     end
