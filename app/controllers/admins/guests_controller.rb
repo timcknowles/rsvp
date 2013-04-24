@@ -1,11 +1,10 @@
 class Admins::GuestsController < AdminsController
 
 def index
-    @guests = Guest.all
     respond_to do |format|
       format.html # index.html.erb
-      format.csv {render text: @guests.to_csv}
-      format.json { render json: @guests }
+      format.csv {render text: Guest.to_csv}
+      format.json { render json: Guest.all }
     end
   end
 
