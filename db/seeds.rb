@@ -40,22 +40,24 @@ require 'securerandom'
 
 file1 = open("http://skinnersrsvp.s3.amazonaws.com/family.csv")
 
-CSV.foreach (file1)  do |row|
-  family = find_by_id(row["id"]) || new
+CSV.foreach(file1)  do |row|
+  family.find_by_id(row[0]) 
+  family.new
   family.family_id = row[0]
   family.first_name = row[1]
   family.last_name = row[2]
   family.invite_type = row[3]
 
   family.save!
-end
+  end
 
 
 
 file2 = open("http://skinnersrsvp.s3.amazonaws.com/guests.csv")
 
-CSV.foreach (file2)  do |row|
-  guest = find_by_id(row["id"]) || new
+CSV.foreach(file2)  do |row|
+  guest.find_by_id(row[0])
+  guest.new
   guest.family_id = row[0]
   guest.first_name = row[1]
   guest.last_name = row[2]
@@ -64,7 +66,7 @@ CSV.foreach (file2)  do |row|
   guest.save!
    
   
-end
+  end
 
   
 
