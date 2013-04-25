@@ -38,26 +38,22 @@ require 'securerandom'
 
 
 
+
 file1 = open("http://skinnersrsvp.s3.amazonaws.com/family.csv")
 
 CSV.foreach(file1)  do |row|
-  family.find_by_id(row[0]) 
-  family.new
-  family.family_id = row[0]
-  family.first_name = row[1]
-  family.last_name = row[2]
-  family.invite_type = row[3]
-
+  family = Family.find_by_name(row[0]) || Family.new
+  family.name = row[0]
+  family.password = ENV["WEDDING_PASSWORD"]
+  family.login_code = SecureRandom.hex(3)
   family.save!
   end
-
 
 
 file2 = open("http://skinnersrsvp.s3.amazonaws.com/guests.csv")
 
 CSV.foreach(file2)  do |row|
-  guest.find_by_id(row[0])
-  guest.new
+  guest = Guest.where(first_name: row[1], last_name: row[2]) || Guest.new
   guest.family_id = row[0]
   guest.first_name = row[1]
   guest.last_name = row[2]

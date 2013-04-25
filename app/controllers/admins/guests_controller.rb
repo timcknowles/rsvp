@@ -2,7 +2,7 @@ class Admins::GuestsController < AdminsController
 
 def index
     respond_to do |format|
-      format.html # index.html.erb
+      format.html { @guests = Guest.all }
       format.csv {render text: Guest.to_csv}
       format.json { render json: Guest.all }
     end
