@@ -53,15 +53,12 @@ CSV.foreach(file1)  do |row|
 file2 = open("http://skinnersrsvp.s3.amazonaws.com/guests.csv")
 
 CSV.foreach(file2)  do |row|
-  guest = Guest.where(first_name: row[1], last_name: row[2]) || Guest.new
+  guest = Guest.where(first_name: row[1], last_name: row[2]).first || Guest.new
   guest.family_id = row[0]
   guest.first_name = row[1]
   guest.last_name = row[2]
   guest.invite_type = row[3]
-
   guest.save!
-   
-  
   end
 
   
