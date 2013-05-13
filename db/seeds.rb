@@ -39,9 +39,9 @@ require 'securerandom'
 
 
 
-file1 = open("http://skinnersrsvp.s3.amazonaws.com/family.csv")
+file1 = open('https://www.dropbox.com/s/l3xao5mw89co567/family.csv')
 
-CSV.foreach(file1)  do |row|
+CSV.foreach(file1) do |row|
   family = Family.find_by_name(row[0]) || Family.new
   family.name = row[0]
   family.password = ENV["WEDDING_PASSWORD"]
@@ -50,7 +50,7 @@ CSV.foreach(file1)  do |row|
   end
 
 
-file2 = open("http://skinnersrsvp.s3.amazonaws.com/guests.csv")
+file2 = open('https://www.dropbox.com/s/6e82lp3mbnb5wk1/guests.csv')
 
 CSV.foreach(file2)  do |row|
   guest = Guest.where(first_name: row[1], last_name: row[2]).first || Guest.new
@@ -60,6 +60,7 @@ CSV.foreach(file2)  do |row|
   guest.invite_type = row[3]
   guest.save!
   end
+
 
   
 
